@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdarg.h>
+#include <unistd.h>
 #include "main.h"
 
 /**
@@ -22,7 +25,7 @@ int _printf(const char *format, ...)
     {
         if (*format != '%')
         {
-            putchar(*format);
+            write(1, format, 1);
             outputCount++;
         }
         else
@@ -33,12 +36,12 @@ int _printf(const char *format, ...)
 
             if (*format == '%')
             {
-                putchar(*format);
+                write(1, format, 1);
             }
             else if (*format == 'c')
             {
                 char c = va_arg(args, int);
-                putchar(c);
+                write(1, &c, 1);
                 outputCount++;
             }
             else if (*format == 's')
@@ -49,14 +52,8 @@ int _printf(const char *format, ...)
                 while (str[strLen] != '\0')
                     strLen++;
 
-                putchar(*str);
-                outputCount++;
-
-                for (int a = 1; a < strLen; a++)
-                {
-                    putchar(*(str + a));
-                    outputCount++;
-                }
+                write(1, str, strLen);
+                outputCount += strLen;
             }
         }
         format++;
