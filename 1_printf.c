@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
 #include "main.h"
 
 /**
@@ -17,7 +14,7 @@ int _printf(const char *format, ...)
     va_list args;
 
     if (format == NULL)
-        return -1; // Use an appropriate error code
+        return -1;
 
     va_start(args, format);
 
@@ -25,7 +22,7 @@ int _printf(const char *format, ...)
     {
         if (*format != '%')
         {
-            write(1, format, 1);
+            putchar(*format);
             outputCount++;
         }
         else
@@ -36,24 +33,31 @@ int _printf(const char *format, ...)
 
             if (*format == '%')
             {
-                write(1, format, 1);
+                putchar(*format);
             }
             else if (*format == 'c')
             {
                 char c = va_arg(args, int);
-                write(1, &c, 1);
+                putchar(c);
                 outputCount++;
             }
             else if (*format == 's')
             {
                 char *str = va_arg(args, char *);
                 int strLen = 0;
+		int a;
 
                 while (str[strLen] != '\0')
                     strLen++;
 
-                write(1, str, strLen);
-                outputCount += strLen;
+                putchar(*str);
+                outputCount++;
+
+                for (a = 1; a < strLen; a++)
+                {
+                    putchar(*(str + a));
+                    outputCount++;
+                }
             }
         }
         format++;
