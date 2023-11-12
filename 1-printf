@@ -65,13 +65,3 @@ int _printf(const char *format, ...)
     va_end(args);
     return outputCount;
 }
-
-int main()
-{
-    _printf("Trab is not in love\n");
-    _printf("%c\n", 'B');
-    _printf("%s\n", "fuck love");
-    _printf("%%\n");
-
-    return 0;
-}
