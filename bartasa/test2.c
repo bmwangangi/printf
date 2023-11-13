@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdarg.h>
+#include "main.h"
 
 /**
  * _printf - Custom printf-like function with variable arguments.
@@ -15,7 +14,7 @@ int _printf(const char *format, ...)
     va_list args;
 
     if (format == NULL)
-        return -1;
+        return (-1);
 
     va_start(args, format);
 
@@ -46,7 +45,8 @@ int _printf(const char *format, ...)
             {
                 char *str = va_arg(args, char *);
                 int strLen = 0;
-                int a;
+		int a;
+
                 while (str[strLen] != '\0')
                     strLen++;
 
@@ -64,5 +64,6 @@ int _printf(const char *format, ...)
     }
 
     va_end(args);
-    return outputCount;
+    return (outputCount);
 }
+

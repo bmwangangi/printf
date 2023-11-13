@@ -46,7 +46,8 @@ int _printf(const char *format, ...)
             {
                 char *str = va_arg(args, char *);
                 int strLen = 0;
-                int a;
+		int a;
+
                 while (str[strLen] != '\0')
                     strLen++;
 
