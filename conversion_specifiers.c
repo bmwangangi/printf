@@ -90,4 +90,4 @@ int print_decimal(va_list argument)
 	putchar(last + '0');
 
 	return (d);
-} 
+}
