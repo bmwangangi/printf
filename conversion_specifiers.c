@@ -46,7 +46,7 @@ int print_integer(int p)
 	int num, last = p % 10, digit, exp = 1;
 	int count = 1;
 
-	p = p /10;
+	p = p / 10;
 	num = p;
 
 	if (last < 0)
