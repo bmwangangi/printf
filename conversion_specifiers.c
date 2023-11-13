@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * print_integer - Used to print integers
- * @argument: argument to check
+ * print_integer - Prints integers
+ * @argument: The integer to print
  *
- * Return: number of characters printed
+ * Return: Number of characters printed
  */
+
 int print_integer(va_list argument)
 {
 	int v = va_arg(argument, int);
@@ -23,36 +24,39 @@ int print_integer(va_list argument)
 		last = -last;
 		a++;
 	}
+
 	if (num > 0)
 	{
 		while (num / 10 != 0)
 		{
-			exp = exp * 10;
-			num = num / 10;
+			exp *= 10;
+			num /= 10;
 		}
+
 		num = v;
 		while (exp > 0)
 		{
 			digit = num / exp;
 			putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
+			num -= digit * exp;
+			exp /= 10;
 			a++;
 		}
 	}
-	putchar(last + '0');
 
+	putchar(last + '0');
 	return (a);
 }
 
 #include "main.h"
 
 /**
- * print_decimal - print integers
- * @argument: the argument to print
+ * print_decimal - Prints integers
+ * @argument: The integer to print
  *
- * Return: number of characters printed
+ * Return: Number of characters printed
  */
+
 int print_decimal(va_list argument)
 {
 	int b = va_arg(argument, int);
@@ -70,24 +74,26 @@ int print_decimal(va_list argument)
 		last = -last;
 		d++;
 	}
+
 	if (num > 0)
 	{
 		while (num / 10 != 0)
 		{
-			exp = exp * 10;
-			num = num / 10;
+			exp *= 10;
+			num /= 10;
 		}
+
 		num = b;
 		while (exp > 0)
 		{
 			digit = num / exp;
 			putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
+			num -= digit * exp;
+			exp /= 10;
 			d++;
 		}
 	}
-	putchar(last + '0');
 
+	putchar(last + '0');
 	return (d);
 }
