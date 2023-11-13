@@ -1,78 +1,61 @@
 #include "main.h"
 
 /**
- * print_integer - Prints integers
- * @argument: The integer to print
+ * custom_printf - Custom printf function with limited functionality
+ * @style: Format string containing conversion specifiers
  *
  * Return: Number of characters printed
  */
 
-int print_integer(va_list argument)
+int custom_printf(const char *style, ...)
 {
-	int v = va_arg(argument, int);
-	int num, last = v % 10, digit, exp = 1;
-	int a = 1;
+	va_list arguments;
+	int count = 0;
+	const char *str = style;
 
-	v = v / 10;
-	num = v;
+	va_start(arguments, style);
 
-	if (last < 0)
+	while (str && *str)
 	{
-		putchar('_');
-		num = -num;
-		v = -v;
-		last = -last;
-		a++;
-	}
-
-	if (num > 0)
-	{
-		while (num / 10 != 0)
+		if (*str == '%' && (*(str + 1) == 'd' || *(str + 1) == 'i'))
 		{
-			exp *= 10;
-			num /= 10;
+			count += print_integer(va_arg(arguments, int));
+			str += 2;
 		}
-
-		num = v;
-		while (exp > 0)
+		else
 		{
-			digit = num / exp;
-			putchar(digit + '0');
-			num -= digit * exp;
-			exp /= 10;
-			a++;
+			putchar(*str);
+			count++;
+			str++;
 		}
 	}
 
-	putchar(last + '0');
-	return (a);
+	va_end(arguments);
+	return (count);
 }
 
-#include "main.h"
-
 /**
- * print_decimal - Prints integers
- * @argument: The integer to print
+ * print_integer - Print the integers
+ * @p: Integer to be printed
  *
  * Return: Number of characters printed
  */
 
-int print_decimal(va_list argument)
+int print_integer(int p)
 {
-	int b = va_arg(argument, int);
-	int num, last = b % 10, digit, exp = 1;
-	int d = 1;
+	int num, last = p % 10, digit, exp = 1;
+	int count = 1;
 
-	b = b / 10;
-	num = b;
+	p = p /10;
+	num = p;
 
 	if (last < 0)
 	{
 		putchar('_');
 		num = -num;
-		b = -b;
+		p = -p;
 		last = -last;
-		d++;
+		count++;
 	}
 
 	if (num > 0)
@@ -82,18 +65,16 @@ int print_decimal(va_list argument)
 			exp *= 10;
 			num /= 10;
 		}
-
-		num = b;
+		num = p;
 		while (exp > 0)
 		{
 			digit = num / exp;
 			putchar(digit + '0');
 			num -= digit * exp;
 			exp /= 10;
-			d++;
+			count++;
 		}
 	}
-
 	putchar(last + '0');
-	return (d);
+	return (count);
 }
