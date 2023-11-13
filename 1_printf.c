@@ -8,7 +8,6 @@
  *
  * Return: The number of characters printed or -1 if an error occurs.
  */
-
 int _printf(const char *format, ...)
 {
 	int outputCount = 0;
@@ -16,6 +15,7 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
+
 	va_start(args, format);
 
 	while (*format)
@@ -25,46 +25,44 @@ int _printf(const char *format, ...)
 			putchar(*format);
 			outputCount++;
 		}
-	}
-}
-else
-{
-		format++;
-		if (*format == '\0')
-			break;
-
-		if (*format == '%')
+		else
 		{
-			putchar(*format);
-		}
-		else if (*format == 'c')
-		{
-			char c = va_arg(args, int);
+			format++;
+			if (*format == '\0')
+				break;
 
-			putchar(c);
-			outputCount++;
-		}
-		else if (*format == 's')
-		{
-			char *str = va_arg(args, char *);
-			int strLen = 0;
-			int a;
-
-			while (str[strLen] != '\0')
-				strLen++;
-
-			putchar(*str);
-			outputCount++;
-
-			for (a = 1; a < strLen; a++)
+			if (*format == '%')
+				putchar(*format);
+			else if (*format == 'c')
 			{
-				putchar(*(str + a));
+				char c = va_arg(args, int);
+				putchar(c);
 				outputCount++;
 			}
+			else if (*format == 's')
+			{
+				char *str = va_arg(args, char *);
+				int strLen = 0;
+				int a;
+
+				while (str[strLen] != '\0')
+					strLen++;
+
+				putchar(*str);
+				outputCount++;
+
+				for (a = 1; a < strLen; a++)
+				{
+					putchar(*(str + a));
+					outputCount++;
+				}
+			}
+			format++;
 		}
-		format++;
 	}
-va_end(args);
-return (outputCount);
+
+	va_end(args);
+
+	return (outputCount);
 }
 
