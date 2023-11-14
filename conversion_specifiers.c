@@ -110,6 +110,7 @@ int print_the_percent(va_list args, char trab[],
 int print_integer(va_list args, char trab[],
                   int evans, int diameter, int accurate, int measurement)
 {
+<<<<<<< HEAD
     int c = BUFF_SIZE - 2;
     int is_negative = 0;
     long int m = va_arg(args, long int);
@@ -139,6 +140,42 @@ int print_integer(va_list args, char trab[],
         buffer[c--] = '-';
 
     return (handling__integer(buffer + c + 1, trab, evans, diameter, accurate, measurement));
+=======
+	int num, last = p % 10, digit, exp = 1;
+	int count = 1;
+
+	p = p / 10;
+	num = p;
+
+	if (last < 0)
+	{
+		putchar('_');
+		num = -num;
+		p = -p;
+		last = -last;
+		count++;
+	}
+
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			exp *= 10;
+			num /= 10;
+		}
+		num = p;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			putchar(digit + '0');
+			num -= digit * exp;
+			exp /= 10;
+			count++;
+		}
+	}
+	putchar(last + '0');
+	return (count);
+>>>>>>> 4faf576c283f3084f7f80f25be0b8aee561a2dd0
 }
 
 /**
