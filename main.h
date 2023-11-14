@@ -6,7 +6,18 @@
 #include <stdio.h>
 
 int _printf(const char *format, ...);
-int custom_printf(const char *style, ...);
-int print_integer(int p);
+int print_binary_form(va_list args, char trab[],
+        int evans, int diameter, int accurate, int measurement)
+int print_integer(va_list args, char trab[],
+        int evans, int diameter, int accurate, int measurement)
+int print_the_percent(va_list args, char trab[],
+        int evans, int diameter, int accurate, int measurement)
+int print_string(va_list args, char trab[],
+        int evans, int diameter, int accurate, int measurement)
+int print_chararacter(va_list args, char trab[],
+        int evans, int diameter, int accurate, int measument)
+{
+
+
 
 #endif
