@@ -103,7 +103,7 @@ int print_decimal(va_list argument)
 
 int main(void)
 {
-	int num1 = 112;
+	int num1 = 111;
 	int num2 = -311;
 
 	printf("Integer: %i\n", num1);
