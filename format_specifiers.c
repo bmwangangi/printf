@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_integer - Used to print integers
+ * print_integer - For printing integers
  * @argument: argument to be checked
  *
  * Return: number of printed characters
@@ -103,8 +103,8 @@ int print_decimal(va_list argument)
 
 int main(void)
 {
-	int num1 = 132;
-	int num2 = -421;
+	int num1 = 112;
+	int num2 = -321;
 
 	printf("Integer: %i\n", num1);
 	printf("Decimal: %d\n", num2);
