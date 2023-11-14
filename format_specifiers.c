@@ -49,7 +49,7 @@ int print_integer(va_list argument)
 
 /**
  * print_decimal - print integers
- * @argument: the argument to print
+ * @argument: argument to be printed
  *
  * Return: number of printed characters
  */
