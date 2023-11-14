@@ -6,7 +6,7 @@
  * @base: Base to be calculated by.
  * Return: An integer representing the length of a number.
  */
-unsigned int betty_base_length(unsigned int num, int base)
+unsigned int betty_base_length(unsigned int num, int base),
 {
 	unsigned int length;
 
@@ -66,9 +66,9 @@ void betty_write_to_stdout(char *str)
  * @destination: Destination for copying.
  * @source: Source to copy from.
  * @n: The number of bytes to copy.
- * Return: The betty_memcpy() function returns a pointer to dest.
+ * Return: The betty_memcpy() function returns a pointer.
  */
-char *betty_memcpy(char *destination, char *source, unsigned int n)
+ char *betty_memcpy(char *destination, char *source,int betty_hex_check(int num, char x);
 {
 	unsigned int zero;
 

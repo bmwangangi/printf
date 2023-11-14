@@ -7,7 +7,7 @@
  * Return: On success, returns 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int betty_putchar(char x)
+int betty_putchar(char x);
 {
 	return (write(1, &x, 1));
 }
