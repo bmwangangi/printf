@@ -2,7 +2,7 @@
 
 /**
  * print_integer - Used to print integers
- * @argument: argument to check
+ * @argument: argument to be checked
  *
  * Return: number of printed characters
  */
