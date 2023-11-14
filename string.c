@@ -15,8 +15,7 @@ int print_str(va_list args)
 		        if (string == NULL)
 				        string = "(null)";
 			    for (b = 0; string[b] != '\0'; b++)
-				            _putchar(string[b]);
+				            putchar(string[b]);
 
 			        return (b);
 }
-dd
