@@ -104,7 +104,7 @@ int print_decimal(va_list argument)
 int main(void)
 {
 	int num1 = 112;
-	int num2 = -321;
+	int num2 = -311;
 
 	printf("Integer: %i\n", num1);
 	printf("Decimal: %d\n", num2);
