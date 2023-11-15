@@ -4,7 +4,7 @@
  * _printf - Custom printf-like function with variable arguments.
  * @format: Format string specifying the output format.
  *
- * Description: This function simulates the behavior of printf.
+ * Description: function simulates the behavior of printf.
  *
  * Return: The number of characters printed or -1 if an error occurs.
  */
